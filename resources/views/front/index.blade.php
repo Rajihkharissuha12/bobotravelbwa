@@ -173,9 +173,19 @@
             <div class="w-6 h-6 flex shrink-0">
               <img src="assets/images/icons/settings-nonactive.svg" alt="icon">
             </div>
-            <p class="text-xs leading-[18px] font-medium text-[#757C98]">Settings</p>
+            <p class="text-xs leading-[18px] font-medium text-[#757C98]">Dasboard</p>
           </div>
         </a>
+        @guest
+        <a href="{{route('login')}}">
+          <div class="flex flex-col gap-1 items-center">
+            <div class="w-6 h-6 flex shrink-0">
+              <img src="assets/images/icons/user-outline-grey.svg" alt="icon">
+            </div>
+            <p class="text-xs leading-[18px] font-medium text-[#757C98]">Login</p>
+          </div>
+        </a>
+        @endguest
       </div>
     </div>
   </section>

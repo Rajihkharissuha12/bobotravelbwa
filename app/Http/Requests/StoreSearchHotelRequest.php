@@ -23,8 +23,16 @@ class StoreSearchHotelRequest extends FormRequest
     {
         return [
             'keyword' => ['required','string','max:255'],
-            'checkin_at' => ['required','date'],
-            'checkout_at' => ['required','date','after:today']
+            'checkin_at' => ['required','date','after_or_equal:today'],
+            'checkout_at' => ['required','date','after:checkin_at']
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'checkin_at.after_or_equal' => 'Tanggal check-in tidak boleh kurang dari hari ini.',
+            'checkout_at.after' => 'Tanggal check-out harus setelah tanggal check-in.',
         ];
     }
 }

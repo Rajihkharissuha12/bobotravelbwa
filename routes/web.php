@@ -18,7 +18,7 @@ Route::get('/hotels/details/{hotel:slug}',[FrontController::class, 'hotel_detail
 Route::get('/hotels/details/{hotel:slug}/rooms',[FrontController::class, 'hotel_rooms'])->name('front.hotels.rooms');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('admin.hotels.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

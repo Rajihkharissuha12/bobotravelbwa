@@ -64,6 +64,9 @@
                 <input type="date" name="checkin_at" id="checkIn" class="opacity-0 absolute bottom-0" required>
               </div>
             </div>
+            @error('checkin_at')
+                  <p class="text-red text-sm">{{ $message }}</p>
+            @enderror
             <div class="input-container flex flex-col gap-4">
               <p class="font-semibold">Check-Out Date</p>
               <div class="relative group flex items-center gap-2 p-[12px_16px] border border-[#DCDFE6] rounded-lg overflow-hidden">
@@ -86,6 +89,9 @@
                 <input type="date" name="checkout_at" id="checkOut" class="opacity-0 absolute bottom-0" required>
               </div>
             </div>
+            @error('checkout_at')
+                  <span class="text-red text-sm">{{ $message }}</span>
+            @enderror
           </div>
         <button type="submit" class="!bg-[#4041DA] p-[12px_24px] h-12 flex items-center gap-3 rounded-lg justify-center">
           <div class="flex shrink-0">

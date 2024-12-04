@@ -5,16 +5,16 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('front.index') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard') || request()->routeIs('admin.hotels.index') || request()->routeIs('admin.hotel_bookings.index') || request()->routeIs('admin.hotels.show') || request()->routeIs('admin.hotels.edit') || request()->routeIs('admin.hotels.create') || request()->routeIs('admin.hotel_bookings.show')"> 
+                        {{ __('Dashboard Hotels') }}
+                    </x-nav-link>                                   
                     @can('manage cities')
                     <x-nav-link :href="route('admin.cities.index')" :active="request()->routeIs('admin.cities.index')">
                         {{ __('Cities') }}
@@ -23,16 +23,6 @@
                     @can('manage countries')
                     <x-nav-link :href="route('admin.countries.index')" :active="request()->routeIs('admin.countries.index')">
                         {{ __('Countries') }}
-                    </x-nav-link>
-                    @endcan
-                    @can('manage hotels')
-                    <x-nav-link :href="route('admin.hotels.index')" :active="request()->routeIs('admin.hotels.index')">
-                        {{ __('Hotels') }}
-                    </x-nav-link>
-                    @endcan
-                    @can('manage hotel bookings')
-                    <x-nav-link :href="route('admin.hotel_bookings.index')" :active="request()->routeIs('admin.hotel_bookings.index')">
-                        {{ __('Hotel Bookings') }}
                     </x-nav-link>
                     @endcan
                 </div>

@@ -1,11 +1,16 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('New Hotel') }}
-        </h2>
-    </x-slot>
+@extends('../../dashboard')
+@section('sub-content')
 
-    <div class="py-12">
+    @section('header')
+    <div class="py-10">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('New Hotel') }}
+            </h2>
+        </div>
+    </div>
+    @endsection
+
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden p-10 shadow-sm sm:rounded-lg"> 
                 <form method="POST" action="{{route('admin.hotels.store')}}" enctype="multipart/form-data"> 
@@ -85,5 +90,4 @@
 
             </div>
         </div>
-    </div>
-</x-app-layout>
+@endsection

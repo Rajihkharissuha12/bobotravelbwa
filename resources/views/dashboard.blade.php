@@ -1,17 +1,29 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
+    <!-- Subnav: Menampilkan navigasi tambahan -->
+    <x-slot name="subnav">
+        <div class="flex space-x-4">
+            @can('manage hotels')
+            <x-nav-link :href="route('admin.hotels.index')" :active="request()->routeIs('admin.hotels.index') || request()->routeIs('admin.hotels.show') || request()->routeIs('admin.hotels.edit') || request()->routeIs('admin.hotels.create')">
+                {{ __('Hotels') }}
+            </x-nav-link>
+            @endcan
+            @can('manage hotel bookings')
+            <x-nav-link :href="route('admin.hotel_bookings.index')" :active="request()->routeIs('admin.hotel_bookings.index') || request()->routeIs('admin.hotel_bookings.show')">
+                {{ __('Hotel Bookings') }}
+            </x-nav-link>
+            @endcan
+        </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
+    <!-- Header: Menampilkan header dinamis jika ada -->
+    <header>
+        @yield('header')
+    </header>
+
+    <div>
+        @yield('sub-content')
     </div>
+
+    <!-- Menyertakan skrip tambahan (jika ada) -->
+    @stack('after-scripts')
 </x-app-layout>

@@ -1,13 +1,18 @@
-<x-app-layout>
-    <x-slot name="header">
-        <div class="flex flex-row justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Manage Hotel Bookings') }}
-            </h2>
+@extends('../../dashboard')
+@section('sub-content')
+
+    @section('header')
+    <div class="py-10">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="flex flex-row justify-between items-center">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ __('Manage Hotel Bookings') }}
+                </h2>
+            </div>
         </div>
-    </x-slot>
+    </div>
+    @endsection
     
-    <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-10 flex flex-col gap-y-5">
                 @forelse($hotel_bookings as $booking)
@@ -54,5 +59,4 @@
 
             </div>
         </div>
-    </div>
-</x-app-layout>
+@endsection
